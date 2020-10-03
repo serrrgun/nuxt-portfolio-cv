@@ -1,0 +1,142 @@
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #5050f5;
+  background: -webkit-gradient(linear, left top, left bottom, from(#9d2bf3), to(#5050f5));
+  background: linear-gradient(#9d2bf3, #5050f5);
+  background-repeat: no-repeat;;
+  margin: 0;
+  min-height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, Poppins, Helvetica Neue, sans-serif;;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #eee;
+}
+
+[tabindex='-1']:focus {
+  outline: none !important; // stylelint-disable-line  declaration-no-important
+}
+
+// iOS 'clickable elements' fix for role='button'
+[role='button'] {
+  cursor: pointer;
+}
+
+// We love Safari
+input[type='search'] {
+  -webkit-appearance: textfield; // stylelint-disable-line  property-no-vendor-prefix
+}
+
+// Avoid 300ms click delay on touch devices that support the `touch-action` CSS property.
+a,
+// area,
+button,
+[role='button'],
+input,
+label,
+select,
+// summary,
+textarea {
+  touch-action: manipulation;
+}
+
+// We love EDGE! This is a browser!
+svg {
+
+  a &,
+  button & {
+    pointer-events: none;
+  }
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.title {
+  padding: 0;
+  margin: 0;
+  color: #eeeeee;
+  z-index: 1;
+
+  & span {
+    color: #5050f5;
+  }
+
+  &--page {
+    display: inline-block;
+    position: relative;
+    padding-right: 25px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-size: 32px;
+
+    &::after {
+      position: absolute;
+      opacity: .45;
+      top: 20px;
+      right: 0;
+      content: '';
+      height: 30px;
+      width: 50px;
+      background-image: -webkit-repeating-radial-gradient(center center,#5050f5,#5050f5 1px,transparent 0px,transparent 100%);
+      background-image: -moz-repeating-radial-gradient(center center,#5050f5,#5050f5 1px,transparent 0px,transparent 100%);
+      background-image: -ms-repeating-radial-gradient(center center,#5050f5,#5050f5 1px,transparent 0px,transparent 100%);
+      -webkit-background-size: 6px 6px;
+      -moz-background-size: 6px 6px;
+      background-size: 6px 6px;
+      z-index: -1;
+    }
+  }
+
+  &--block {
+    display: inline-block;
+    position: relative;
+    padding-right: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 21px;
+
+    &::after {
+      position: absolute;
+      opacity: .45;
+      top: 10px;
+      right: 0;
+      content: '';
+      height: 20px;
+      width: 30px;
+      background-image: -webkit-repeating-radial-gradient(center center,#5050f5,#5050f5 1px,transparent 0px,transparent 100%);
+      background-image: -moz-repeating-radial-gradient(center center,#5050f5,#5050f5 1px,transparent 0px,transparent 100%);
+      background-image: -ms-repeating-radial-gradient(center center,#5050f5,#5050f5 1px,transparent 0px,transparent 100%);
+      -webkit-background-size: 6px 6px;
+      -moz-background-size: 6px 6px;
+      background-size: 6px 6px;
+      z-index: -1;
+    }
+  }
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity .5s;
+}
+
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+
+.mb {
+  margin-bottom: 1rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 2rem !important;
+}
