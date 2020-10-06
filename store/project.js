@@ -1,9 +1,3 @@
-const projects = [
-  {title: 'post 1', date: new Date(), view: 22, _id: 'id1'},
-  {title: 'post 2', date: new Date(), view: 22, _id: 'id2'},
-  {title: 'post 3', date: new Date(), view: 22, _id: 'id3'}
-]
-
 export const actions = {
   async fetchAdmin({commit}) {
     try {
@@ -29,8 +23,7 @@ export const actions = {
       throw e
     }
   },
-  async create({commit}, {title, text, image, autor, linkProject, linkGithub}) {
-
+  async create({commit}, {title, text, autor, linkProject, linkGithub, prevImage, desktopImage, mobileImage}) {
     try {
       const fd = new FormData()
 
@@ -39,9 +32,12 @@ export const actions = {
       fd.append('autor', autor)
       fd.append('linkProject', linkProject)
       fd.append('linkGithub', linkGithub)
-      fd.append('image', image, image.name)
+      fd.append('prevImage', prevImage, prevImage.name)
+      fd.append('desktopImage', desktopImage, desktopImage.name)
+      fd.append('mobileImage', mobileImage, mobileImage.name)
 
-      console.log('На клиенте запрос пошел', fd.title)
+
+      console.log('На клиенте запрос пошел', fd.get('desktopImage').name)
       return await this.$axios.$post('/api/project/admin', fd)
     } catch (e) {
       commit('setError', e, {root: true})
@@ -72,4 +68,22 @@ export const actions = {
       throw e
     }
   },
+  async addView({commit}, {views, _id}) {
+    try {
+      console.log(views)
+      return await this.$axios.$put(`/api/project/add/view/${_id}`, {views})
+      onsole.log(views)
+    } catch(e) {
+      commit('setError', e, {root: true})
+      throw e
+    }
+  },
+  async getAnalytics({commit}) {
+    try {
+      return await this.$axios.$get(`/api/project/admin/get/analytics`)
+    } catch (e) {
+      commit('setError', e, {root: true})
+      throw e
+    }
+  }
 }

@@ -4,6 +4,11 @@
   </section>
 </template>
 <script>
+export default {
+  head: {
+    title: `Библиотека | ${process.env.appName}`
+  }
+}
 </script>
 <style lang="scss">
 

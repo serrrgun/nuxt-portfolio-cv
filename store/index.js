@@ -1,6 +1,7 @@
 
 export const state = () => ({
-  error: null
+  error: null,
+  menu: false
 })
 
 export const mutations = {
@@ -9,7 +10,10 @@ export const mutations = {
   },
   clearError(state) {
     state.error = null
-  }
+  },
+  // openMenu() {
+  //   state.menu = true
+  // }
 }
 
 export const getters = {

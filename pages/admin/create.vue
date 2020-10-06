@@ -50,11 +50,12 @@
       </div>
 
     </el-dialog>
+    <h3>Превью картинка</h3>
     <el-upload
       drag
       ref="upload"
       action="https://jsonplaceholder.typicode.com/posts/"
-      :on-change="handleImageChange"
+      :on-change="handleImageChangePrev"
       :auto-upload="false"
       multiple
       class="mb">
@@ -62,6 +63,33 @@
       <div class="el-upload__text">Перетащите картинку <em>или нажмите</em></div>
       <div class="el-upload__tip" slot="tip">файлы с расширением jpeg/png</div>
     </el-upload>
+    <h3>Десктоп картинка</h3>
+    <el-upload
+      drag
+      ref="upload"
+      action="https://jsonplaceholder.typicode.com/posts/"
+      :on-change="handleImageChangeDesktop"
+      :auto-upload="false"
+      multiple
+      class="mb">
+      <i class="el-icon-upload"></i>
+      <div class="el-upload__text">Перетащите картинку <em>или нажмите</em></div>
+      <div class="el-upload__tip" slot="tip">файлы с расширением jpeg/png</div>
+    </el-upload>
+    <h3>Мобильная картинка</h3>
+    <el-upload
+      drag
+      ref="upload"
+      action="https://jsonplaceholder.typicode.com/posts/"
+      :on-change="handleImageChangeMobile"
+      :auto-upload="false"
+      multiple
+      class="mb">
+      <i class="el-icon-upload"></i>
+      <div class="el-upload__text">Перетащите картинку <em>или нажмите</em></div>
+      <div class="el-upload__tip" slot="tip">файлы с расширением jpeg/png</div>
+    </el-upload>
+
 
     <el-form-item>
       <el-button
@@ -79,9 +107,14 @@
 export default {
   layout: 'admin',
   middleware: ['admin-auth'],
+  head: {
+    title: `Новый проект | ${process.env.appName}`
+  },
   data() {
     return {
-      image: null,
+      prevImage: null,
+      desktopImage: null,
+      mobileImage:  null,
       previewDialog: false,
       loading: false,
       controls: {
@@ -93,19 +126,19 @@ export default {
       },
       rules: {
         title: [
-          { required: true, message: 'Назовите проект!', trigger: 'blur' }
+          { required: false, message: 'Назовите проект!', trigger: 'blur' }
         ],
         text: [
-          { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
+          { required: false, message: 'Текст не должен быть пустым', trigger: 'blur' }
         ],
         autor: [
-            {required: true, message: 'Укажите автора', trigger: 'blur' }
+            {required: false, message: 'Укажите автора', trigger: 'blur' }
         ],
         linkProject: [
-          {required: true, message: 'Укажите ссылку на проект', trigger: 'blur' }
+          {required: false, message: 'Укажите ссылку на проект', trigger: 'blur' }
         ],
         linkGithub: [
-          {required: true, message: 'Укажите ссылку Github репозиторий', trigger: 'blur' }
+          {required: false, message: 'Укажите ссылку Github репозиторий', trigger: 'blur' }
         ]
       }
     }
@@ -113,7 +146,8 @@ export default {
   methods: {
     onSubmit() {
       this.$refs.form.validate(async valid => {
-        if(valid && this.image) {
+        //&& this.image
+        if(valid) {
           this.loading = true
           const formData = {
             title: this.controls.title,
@@ -121,7 +155,9 @@ export default {
             autor: this.controls.autor,
             linkProject: this.controls.linkProject,
             linkGithub: this.controls.linkGithub,
-            image: this.image,
+            prevImage: this.prevImage,
+            desktopImage: this.desktopImage,
+            mobileImage:  this.mobileImage,
           }
 
           try {
@@ -129,7 +165,9 @@ export default {
             await this.$store.dispatch('project/create', formData)
             this.controls.text = ''
             this.controls.title = ''
-            this.image = null
+            this.prevImage = null,
+            this.desktopImage = null,
+            this.mobileImage =  null,
             this.$refs.upload.clearFiles()
             this.$message.success('Новый проект создан')
 
@@ -143,8 +181,17 @@ export default {
         }
       })
     },
-    handleImageChange(file, fileList) {
-      this.image = file.raw
+    handleImageChangePrev(file, fileList) {
+      this.prevImage =  file.raw
+      console.log(this.prevImage)
+    },
+    handleImageChangeDesktop(file, fileList) {
+      this.desktopImage = file.raw
+      console.log(this.desktopImage)
+    },
+    handleImageChangeMobile(file, fileList) {
+      this.mobileImage = file.raw
+      console.log(this.desktopImage)
     }
   },
 

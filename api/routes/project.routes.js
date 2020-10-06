@@ -10,7 +10,11 @@ const router = Router()
 router.post(
   '/admin',
   passport.authenticate('jwt', {session: false}),
-  upload.single('image'),
+  upload.fields([
+                  {name: 'desktopImage', maxCount: 10},
+                  {name: 'prevImage', maxCount: 10},
+                  {name: 'mobileImage', maxCount: 10}
+                ]),
   controller.create
 )
 
@@ -38,11 +42,19 @@ router.delete(
   controller.remove
 )
 
+// analytics
+
+router.get(
+  '/admin/get/analytics',
+  passport.authenticate('jwt', {session: false}),
+  controller.getAnalytics
+)
+
 //base
 // /api/project
 
 router.get('/', controller.getAll)
 router.get('/:id', controller.getById)
-//router.put('/:id', controller.addView)
+router.put('/add/view/:id', controller.addView)
 
 module.exports = router

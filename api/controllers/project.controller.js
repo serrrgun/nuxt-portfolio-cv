@@ -1,18 +1,25 @@
 const Project = require('../models/project.model')
 
 module.exports.create = async (req, res) => {
-  console.log('запрос пошел.....')
+  const imagesArray = (arrayImages) => {
+    const arr = arrayImages.map(image => {return `/${image.filename}`})
+    return arr
+  }
+
+  console.log('запрос пошел.....', req.files.prevImage)
   const project = new Project({
     title: req.body.title,
     text: req.body.text,
     autor: req.body.autor,
     linkProject: req.body.linkProject,
     linkGithub: req.body.linkGithub,
-    imageUrl: `/${req.file.filename}`,
+    prevImage: imagesArray(req.files.prevImage),
+    desktopImage: imagesArray(req.files.desktopImage),
+    mobileImage: imagesArray(req.files.mobileImage),
   })
 
   try {
-    console.log(project)
+    console.log('Сформированный', project)
     await project.save(err => {
       if (err) console.log(err);
       else {
@@ -74,8 +81,26 @@ module.exports.addView = async (req, res) => {
     views: ++req.body.views
   }
   try {
+    console.log(Project, req.body.views)
     await Project.findOneAndUpdate({_id: req.params.id}, {$set})
     res.status(204).json()
+  } catch (e) {
+    res.status(500).json(e)
+  }
+}
+
+module.exports.getAnalytics = async (req, res) => {
+  try {
+    const projects = await Project.find()
+
+    const json = {
+      views: {
+        labels: projects.map(project => project.title),
+        data: projects.map(project => project.views),
+      }
+    }
+    console.log(json)
+    res.json(json)
   } catch (e) {
     res.status(500).json(e)
   }

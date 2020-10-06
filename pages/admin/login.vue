@@ -35,6 +35,9 @@
 <script>
 export default {
   layout: 'empty',
+  head: {
+    title: `Войти | ${process.env.appName}`
+  },
   data() {
     return {
       loading: false,

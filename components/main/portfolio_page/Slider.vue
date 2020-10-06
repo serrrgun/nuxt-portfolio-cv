@@ -20,7 +20,7 @@
         <div class="swiper-slide project-slider__item">
           <div class="project-slider__item-wrapper">
             <img src="@/assets/img/macbook.png" alt="mac">
-            <div class="project-slider__item-bg project-slider__item-bg--macbook"></div>
+            <div class="project-slider__item-bg project-slider__item-bg--macbook" :style="{ backgroundImage: `url(${project.desktopImage[0]})` }"></div>
           </div>
         </div>
       </swiper-slide>
@@ -28,7 +28,7 @@
         <div class="swiper-slide project-slider__item">
           <div class="project-slider__item-wrapper">
             <img src="@/assets/img/iphone.png" alt="mac">
-            <div class="project-slider__item-bg project-slider__item-bg--iphone"></div>
+            <div class="project-slider__item-bg project-slider__item-bg--iphone" ></div>
           </div>
         </div>
       </swiper-slide>
@@ -39,6 +39,12 @@
 <script>
 export default {
     name: 'swiper-nuxt',
+    props: {
+      project: {
+        type: Object,
+        required: true
+      }
+    },
     data () {
       return {
         swiperOption: {
@@ -48,6 +54,9 @@ export default {
           }
         }
       }
+    },
+    mounted() {
+      console.log(project)
     },
     methods: {
       onSwiperRedied(swiper) {

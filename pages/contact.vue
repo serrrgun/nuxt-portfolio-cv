@@ -19,6 +19,9 @@ export default {
   components: {
     AppBlockInfo,
     AppForm
+  },
+  head: {
+    title: `Контакты | ${process.env.appName}`
   }
 }
 </script>

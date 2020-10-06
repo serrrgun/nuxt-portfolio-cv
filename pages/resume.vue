@@ -23,6 +23,9 @@ export default {
     AppTimeLine,
     AppSkills,
     AppCertificats
+  },
+  head: {
+    title: `Резюме | ${process.env.appName}`
   }
 }
 </script>

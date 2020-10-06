@@ -50,7 +50,7 @@ export default {
   middleware: ['admin-auth'],
   head() {
     return {
-      title: `Проект | ${this.project.title}`
+      title: `${this.project.title} | ${process.env.appName}`
     }
   },
   validate({params}) {

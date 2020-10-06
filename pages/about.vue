@@ -7,6 +7,9 @@ import AppAbout from '@/components/main/about_page/About'
 export default {
   components: {
     AppAbout
+  },
+  head: {
+    title: `Обо мне | ${process.env.appName}`
   }
 }
 </script>

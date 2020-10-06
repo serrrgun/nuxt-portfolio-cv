@@ -23,6 +23,9 @@ export default {
   components: {
     AppPortfoliItem
   },
+  head: {
+    title: `Портфолио | ${process.env.appName}`
+  },
   async asyncData({store}) {
     const projects = await store.dispatch('project/fetch')
     return {projects}

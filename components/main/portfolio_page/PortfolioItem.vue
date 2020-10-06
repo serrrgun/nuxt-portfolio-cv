@@ -1,6 +1,6 @@
 <template>
   <div class="portfolio-item" @click="openProject">
-    <img :src="project.imageUrl" alt="project.title">
+    <img :src="project.prevImage[0]" :alt="project.title">
     <div class="portfolio-item__desc">
       <h4 class="portfolio-item__title">{{ project.title }}</h4>
     </div>

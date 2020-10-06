@@ -43,30 +43,21 @@ export default {
     //'@nuxtjs/eslint-module'
   ],
 
+  env: {
+    appName: 'Portfolio ST'
+  },
+
+  axios: {
+    baseURL: process.env.BASE_URL || 'http://localhost:3000'
+  },
+
   modules: [
     '@nuxtjs/axios',
     '@nuxtjs/svg-sprite',
     'nuxt-element-ui',
   ],
 
-
-
-  // proxy: {
-  //   '/api/auth': '~/api/routes/auth.routes.js',
-  // },
-
   svgSprite: {
     input: '~/assets/svg/'
   },
-
-  // build: {
-  //   extend (config, { isDev, isClient}) {
-  //     if (isDev) {
-  //       config.node = {
-  //         fs: 'empty',
-  //         net: 'empty'
-  //       }
-  //     }
-  //   }
-  // }
 }

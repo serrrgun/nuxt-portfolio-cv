@@ -6,9 +6,12 @@
   </div>
 </template>
 <script>
+import { state } from '~/store/auth'
 export default {
   methods: {
-    openMenu() {
+    openMenu({commit}) {
+      //commit('openMenu')
+      console.log(this.$store, this.commit)
       console.log('Меню открывайся')
     }
   }

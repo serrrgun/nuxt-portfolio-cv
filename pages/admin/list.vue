@@ -45,6 +45,9 @@
 export default {
   layout: 'admin',
   middleware: ['admin-auth'],
+  head: {
+    title: `Все проекты | ${process.env.appName}`
+  },
   async asyncData({store}) {
     const projects = await store.dispatch('project/fetchAdmin')
     return {projects}

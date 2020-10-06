@@ -30,7 +30,9 @@ const projectSchema = new Schema({
     type: Number,
     default: 0
   },
-  imageUrl: String
+  prevImage: [String],
+  desktopImage: [String],
+  mobileImage: [String]
 })
 
 module.exports = model('projects', projectSchema)

@@ -8,10 +8,17 @@ export default {
   components: {
     AppProject
   },
+  head() {
+    return {
+      title: `${this.project.title} | ${process.env.appName}`
+    }
+  },
   async asyncData({store, params}) {
     const project = await store.dispatch('project/fetchById', params.id)
-    console.log('проект', project)
-    return {project}
+    await store.dispatch('project/addView', project)
+    return {
+      project: {...project, views: ++project.views}
+    }
   },
   validate({params}) {
     return Boolean(params.id)

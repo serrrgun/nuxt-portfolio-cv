@@ -7,7 +7,11 @@
   </section>
 </template>
 <script>
-export default {}
+export default {
+  head: {
+    title: `Главная | ${process.env.appName}`
+  }
+}
 </script>
 
 <style lang="scss">
