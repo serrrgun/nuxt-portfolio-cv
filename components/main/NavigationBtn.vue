@@ -1,14 +1,24 @@
 <template>
   <div class="navigation">
-    <button class="navigation__btn navigation__btn--prev">
+    <button class="navigation__btn navigation__btn--prev" @click="onPrevUrlHandler">
       <svg-icon name="back-btn" />
     </button>
-    <button class="navigation__btn navigation__btn--next">
+    <button class="navigation__btn navigation__btn--next"  @click="onNextUrlHandler">
       <svg-icon name="back-btn" />
     </button>
   </div>
 </template>
 <script>
+export default {
+  methods: {
+    onPrevUrlHandler() {
+      this.$router.go(-1)
+    },
+    onNextUrlHandler() {
+      this.$router.go(1)
+    }
+  }
+}
 </script>
 <style lang="scss">
 .navigation {
