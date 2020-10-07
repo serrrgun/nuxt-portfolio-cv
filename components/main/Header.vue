@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="{'header--open': openMenu}">
     <div class="header__photo">
       <img src="@/assets/img/main_photo.jpg" alt="main-photo">
     </div>
@@ -18,8 +18,13 @@ export default {
   components: {
     AppNavigation,
     AppSocialLinks,
-  }
-
+  },
+  props: {
+    openMenu: {
+      type: Boolean,
+      required: true
+    }
+  },
 }
 </script>
 <style lang="scss">

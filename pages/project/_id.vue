@@ -4,7 +4,7 @@
 <script>
 import AppProject from '@/components/main/portfolio_page/Project'
 export default {
-  layout: 'project',
+  //layout: 'project',
   components: {
     AppProject
   },

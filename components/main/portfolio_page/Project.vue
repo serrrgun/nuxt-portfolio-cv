@@ -98,15 +98,13 @@ export default {
 .project {
   &__wrapper {
     display: flex;
-    justify-content: space-between;
-    @media screen and (max-width: 1120px) {
-      flex-direction: column;
-    }
+    flex-direction: column;
   }
 
   &__slider {
-    width: 68%;
+    width: 100%;
     height: 500px;
+    margin-bottom: 30px;
 
     @media screen and (max-width: 1120px) {
       width: 100%;
@@ -115,7 +113,7 @@ export default {
   }
 
   &__description {
-    width: 30%;
+    width: 100%;
     position: relative;
     padding: 20px 25px 25px;
     background-color: #333;
