@@ -27,7 +27,9 @@ export default {
 .portfolio-item {
   position: relative;
   display: block;
-  width: 32%;
+  width: 49%;
+  height: 250px;
+  border-radius: 6px;
   margin-bottom: 20px;
   overflow: hidden;
   cursor: pointer;
@@ -45,10 +47,6 @@ export default {
 
   img {
     transition: .5s ease-in;
-  }
-
-  @media screen and (max-width: 1120px) {
-    width: 49%;;
   }
 
   @media screen and (max-width: 640px) {

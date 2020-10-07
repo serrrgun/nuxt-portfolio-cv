@@ -10,7 +10,7 @@ mongoose.connect(keys.MONGO_URI, {
   //useUnifiedTopology: true,
   useNewUrlParser: true,
   //useCreateIndex: true,
-  useFindAndModify: true,
+  //useFindAndModify: true,
 })
   .then(() => console.log('MongoDB connect...'))
   .catch(() => console.log('MongoDB disconnect...'))

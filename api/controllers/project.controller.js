@@ -1,6 +1,7 @@
 const Project = require('../models/project.model')
 
 module.exports.create = async (req, res) => {
+  console.log('запрос пошел.....', req.files.prevImage)
   const imagesArray = (arrayImages) => {
     const arr = arrayImages.map(image => {return `/${image.filename}`})
     return arr
