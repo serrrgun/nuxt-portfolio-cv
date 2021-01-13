@@ -14,14 +14,14 @@
 <script>
 import AppHeader from '@/components/main/Header'
 import AppNavigationBtn from '@/components/main/NavigationBtn'
-import AppMenuBtn from '@/components/main/MenuBtn'
+//import AppMenuBtn from '@/components/main/MenuBtn'
 
 export default {
   components: {
     AppHeader,
     AppNavigationBtn,
-    AppMenuBtn
+    //AppMenuBtn
   },
-  
+
 }
 </script>

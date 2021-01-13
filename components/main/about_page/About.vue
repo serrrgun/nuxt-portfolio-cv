@@ -8,7 +8,7 @@
       </div>
       <div class="about__info">
         <p class="about__info-text"><span>Age</span>32</p>
-        <p class="about__info-text"><span>Residence</span>Belarussian</p>
+        <p class="about__info-text"><span>Residence</span>Belarus</p>
         <p class="about__info-text"><span>Address</span>135a Molodejnaya Street, Novopolotsk Town</p>
         <p class="about__info-text"><span>e-mail</span>serrrgun@mail.ru</p>
         <p class="about__info-text"><span>Phone</span>+375 44 539 78 68</p>

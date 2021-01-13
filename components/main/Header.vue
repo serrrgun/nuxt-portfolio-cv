@@ -1,5 +1,5 @@
 <template>
-  <header class="header" :class="{'header--open': openMenu}">
+  <header class="header" :class="{'header--open': menuTrigger}">
     <div class="header__photo">
       <img src="@/assets/img/main_photo.jpg" alt="main-photo">
     </div>
@@ -19,10 +19,9 @@ export default {
     AppNavigation,
     AppSocialLinks,
   },
-  props: {
-    openMenu: {
-      type: Boolean,
-      required: true
+  computed: {
+    menuTrigger() {
+      return this.$store.getters['menu/menu']
     }
   },
 }

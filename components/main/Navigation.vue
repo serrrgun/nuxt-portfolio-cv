@@ -1,6 +1,6 @@
 <template>
   <nav class="main-nav">
-    <ul class="main-nav__list">
+    <ul class="main-nav__list" v-on:click="openMenuHandler">
       <li class="main-nav__item">
         <nuxt-link no-prefetch exact to="/" class="main-nav__link" active-class="main-nav__link--active">
           <svg-icon name="home" />
@@ -41,7 +41,13 @@
   </nav>
 </template>
 <script>
-
+export default {
+  methods: {
+    openMenuHandler() {
+      this.$store.commit('menu/toggleMenu')
+    }
+  },
+}
 </script>
 <style lang="scss">
 .main-nav {

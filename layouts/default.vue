@@ -2,13 +2,9 @@
   <div class="page">
     <div class="background"></div>
     <div class="container" >
-      <div class="menu-btn" v-on:click="openMenuHandler">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-      <app-header :openMenu="openMenu" />
-      <main class="content" :class="{ 'content--project': fullSize }">
+      <app-menuBtn />
+      <app-header />
+      <main class="content">
         <Nuxt />
       </main>
       <app-navigationBtn/>
@@ -26,18 +22,6 @@ export default {
     AppNavigationBtn,
     AppMenuBtn
   },
-  data() {
-    return {
-      fullSize: false,
-      openMenu: false,
-    }
-  },
-  methods: {
-    openMenuHandler() {
-      this.openMenu = !this.openMenu
-      console.log(this.openMenu)
-    }
-  }
 }
 </script>
 <style lang="scss">
@@ -58,8 +42,6 @@ export default {
     padding: 0;
   }
 }
-
-
 
 .container {
   position: relative;
@@ -143,8 +125,6 @@ export default {
   }
 }
 
-
-
 .button-cv {
   padding: 10px 15px;
   background-color: transparent;
@@ -167,73 +147,6 @@ export default {
 
   @media screen and (max-width: 1120px) {
     font-size: 1.5em;
-  }
-}
-
-.menu-btn {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  display: none;
-  width: 48px;
-  height: 48px;
-  line-height: 46px;
-  text-align: center;
-  background-color: #5050f5;
-  border-radius: 30px;
-  transition: .5s ease-in-out;
-  z-index: 15;
-  cursor: pointer;
-
-  & span {
-    position: absolute;
-    left: 25%;
-    display: block;
-    height: 3px;
-    width: 50%;
-    background: #fff;
-    border-radius: 5px;
-    opacity: 1;
-    transform-origin: left center;
-    transform: rotate(0deg);
-    transition: .25s ease-in-out;
-
-    &:nth-child(1) {
-      top: 16px;
-    }
-
-    &:nth-child(2) {
-      top: 22px
-    }
-
-    &:nth-child(3) {
-      top: 28px;
-    }
-  }
-
-  &--active {
-    & span {
-      &:nth-child(1) {
-        top: 13px;
-        left: 15px;
-        transform: rotate(45deg);
-      }
-
-      &:nth-child(2) {
-        width: 0%;
-        opacity: 0;
-      }
-
-      &:nth-child(3) {
-        transform: rotate(-45deg);
-        top: 30px;
-        left: 15px;
-      }
-    }
-  }
-
-  @media screen and (max-width: 1120px) {
-    display: block;
   }
 }
 </style>

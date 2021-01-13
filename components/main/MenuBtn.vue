@@ -1,20 +1,22 @@
 <template>
-  <div class="menu-btn" @click="openMenu">
+  <div class="menu-btn" :class="{'menu-btn--active': menuTrigger}" v-on:click="openMenuHandler">
     <span></span>
     <span></span>
     <span></span>
   </div>
 </template>
 <script>
-import { state } from '~/store/auth'
 export default {
   methods: {
-    openMenu({commit}) {
-      //commit('openMenu')
-      console.log(this.$store, this.commit)
-      console.log('Меню открывайся')
+    openMenuHandler() {
+      this.$store.commit('menu/toggleMenu')
     }
-  }
+  },
+  computed: {
+    menuTrigger() {
+      return this.$store.getters['menu/menu']
+    }
+  },
 }
 </script>
 <style lang="scss">
