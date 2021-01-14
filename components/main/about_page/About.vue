@@ -3,7 +3,7 @@
     <h2 class="about__title title title--page">About <span>Me</span></h2>
     <div class="about__wrapper">
       <div class="about__text">
-        <p class="about__ph">Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue elit vel odio suscipit, sit amet tempor nisl imperdiet. Quisque ex justo, faucibus ut mi in, condimentum finibus dolor. Aliquam vitae hendrerit dolor, eget imperdiet mauris. Maecenas et ante id ipsum condimentum dictum et vel massa. Ut in imperdiet dolor, vel consectetur dui.</p>
+        <p class="about__ph">Passionate about technology and design from an early age, I've built websites, applications and digital experiences using front end tools in areas including music, automotive and fashion and art. I'm fascinated by emergent technologies and methodologies, such as responsive design, preprocessors, CSS3 animations and in-browser design. I'm familiar with a range of Content Management Systems, image editing software, as well as Digital Audio Workstations from my days as a recording engineer. In my time away from the computer I enjoy quoting films, playing with any musical gadget I can get my hands on and keeping my two cats off my keyboar</p>
         <p class="about__ph">Proin volutpat mauris ac pellentesque pharetra. Suspendisse congue elit vel odio suscipit, sit amet tempor nisl imperdiet. Quisque ex justo, faucibus ut mi in, condimentum finibus dolor. Aliquam vitae hendrerit dolor, eget imperdiet mauris. Maecenas et ante id ipsum condimentum dictum et vel massa. Ut in imperdiet dolor, vel consectetur dui.</p>
       </div>
       <div class="about__info">
@@ -31,6 +31,10 @@
     @media screen and (max-width: 640px) {
       flex-direction: column;
     }
+  }
+
+  &__ph {
+    text-align: justify;
   }
 
   &__text {

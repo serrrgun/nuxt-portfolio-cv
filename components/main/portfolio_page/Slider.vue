@@ -1,23 +1,20 @@
 <template>
   <client-only>
     <swiper
-      ref="carousel"
-      class="swiper"
+      ref="mySwiper"
+      class="swiper project-slider"
       :options="swiperOption"
-      @ready="onSwiperRedied"
-      @clickSlide="onSwiperClickSlide"
-      @slideChangeTransitionStart="onSwiperSlideChangeTransitionStart"
     >
       <swiper-slide>
-        <div class="swiper-slide project-slider__item">
+        <div class="swiper-slide project-slider__item project-slider__item--mac">
           <div class="project-slider__item-wrapper">
             <img src="@/assets/img/mac.png" alt="mac">
-            <div class="project-slider__item-bg project-slider__item-bg--mac"></div>
+            <div class="project-slider__item-bg project-slider__item-bg--mac" :style="{ backgroundImage: `url(${project.desktopImage[0]})` }"></div>
           </div>
         </div>
       </swiper-slide>
       <swiper-slide>
-        <div class="swiper-slide project-slider__item">
+        <div class="swiper-slide project-slider__item project-slider__item--macbook">
           <div class="project-slider__item-wrapper">
             <img src="@/assets/img/macbook.png" alt="mac">
             <div class="project-slider__item-bg project-slider__item-bg--macbook" :style="{ backgroundImage: `url(${project.desktopImage[0]})` }"></div>
@@ -28,7 +25,7 @@
         <div class="swiper-slide project-slider__item">
           <div class="project-slider__item-wrapper">
             <img src="@/assets/img/iphone.png" alt="mac">
-            <div class="project-slider__item-bg project-slider__item-bg--iphone" ></div>
+            <div class="project-slider__item-bg project-slider__item-bg--iphone" :style="{ backgroundImage: `url(${project.mobileImage[0]})` }"></div>
           </div>
         </div>
       </swiper-slide>
@@ -40,36 +37,22 @@
 export default {
     name: 'swiper-nuxt',
     props: {
-      project: {
-        type: Object,
-        required: true
-      }
-    },
-    data () {
-      return {
-        swiperOption: {
-          pagination: {
+    project: {
+      type: Object,
+      required: true
+    }
+  },
+  data () {
+    return {
+      swiperOption: {
+        pagination: {
             el: '.swiper-pagination',
-            dynamicBullets: true
-          }
-        }
-      }
-    },
-    mounted() {
-      console.log(project)
-    },
-    methods: {
-      onSwiperRedied(swiper) {
-        console.log('Swiper redied!', swiper)
-      },
-      onSwiperSlideChangeTransitionStart() {
-        console.log('SwiperSlideChangeTransitionStart!')
-      },
-      onSwiperClickSlide(index, reallyIndex) {
-        console.log('Swiper click slide!', reallyIndex)
+            type: 'bullets',
+        },
       }
     }
-  }
+  },
+}
 
 </script>
 <style lang="scss">
@@ -123,6 +106,14 @@ export default {
         background-position: bottom;
       }
     }
+
+    &--macbook {
+      padding-top: 60px;
+    }
+  }
+
+  .swiper-pagination-bullets {
+    bottom: 0;
   }
 }
 </style>

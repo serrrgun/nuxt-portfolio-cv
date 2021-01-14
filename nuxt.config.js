@@ -20,7 +20,7 @@ export default {
 
   css: [
     '@/theme/index.scss',
-    'swiper/swiper-bundle.css',
+    'swiper/css/swiper.css',
     'element-ui/lib/theme-chalk/index.css'
   ],
 
