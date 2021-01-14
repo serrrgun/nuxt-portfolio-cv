@@ -19,7 +19,7 @@
         <a href="#">vue.js</a>
       </li>
       <li class="portfolio__filter-item">
-        <svg-icon name="react" />
+        <svg-icon name="atom" />
         <a href="#">react</a>
       </li>
     </ul>
