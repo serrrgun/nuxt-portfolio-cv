@@ -23,33 +23,18 @@
           </li>
         </ul>
         <h3 class="title title--block">Share</h3>
-        <div>
-          <ShareNetwork
-              network="viber"
-              :url="url"
-              :title="title"
-              :description="description"
-            >
-            <i class="fab fah fa-lg fa-twitter"></i>
-            <span>Share on viberr</span>
-          </ShareNetwork>
-        </div>
+        <app-share />
       </div>
     </div>
   </section>
 </template>
 <script>
 import AppSlider from '@/components/main/portfolio_page/Slider'
+import AppShare from '@/components/main/portfolio_page/Share'
 export default {
   components: {
-    AppSlider
-  },
-  data() {
-    return {
-      url: process.env.BASE_URL || 'http://localhost:3000/' + this.$route.fullPath,
-      title: "Say hi to Vite! A brand new, extremely fast development setup for Vue.",
-      description: "This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
-    }
+    AppSlider,
+    AppShare
   },
   props: {
     project: {
@@ -57,9 +42,6 @@ export default {
       required: true
     }
   },
-  mounted() {
-        console.log(this.url);
-      }
 }
 </script>
 <style lang="scss">

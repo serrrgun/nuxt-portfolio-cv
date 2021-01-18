@@ -1,5 +1,5 @@
 <template>
-  <div class="mb2">
+  <div class="analytics mb2">
     <canvas ref="canvas"></canvas>
   </div>
 </template>
@@ -55,9 +55,16 @@ export default {
                   beginAtZero: true
               }
           }]
-      }
+      },
+      //responsive: false,
     }
     this.renderChart(data, options)
   }
 }
 </script>
+<style lang="scss" scoped>
+.analytics {
+  width: 100%;
+  overflow-x: scroll;
+}
+</style>
