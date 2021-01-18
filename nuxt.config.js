@@ -55,6 +55,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/svg-sprite',
     'nuxt-element-ui',
+    'vue-social-sharing/nuxt'
   ],
 
   svgSprite: {

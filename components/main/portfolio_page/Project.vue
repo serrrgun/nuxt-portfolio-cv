@@ -16,13 +16,24 @@
         <p class="project__description-paragrahp">{{project.text}}</p>
         <h3 class="title title--block">Technology</h3>
         <ul class="project__description-tech">
-          <li class="project__description-tech-item">html5</li>
-          <li class="project__description-tech-item">css</li>
-          <li class="project__description-tech-item">js</li>
-          <li class="project__description-tech-item">ajax</li>
-          <li class="project__description-tech-item">php</li>
+          <li class="project__description-tech-item"
+              v-for="tehnology in project.listTehnology"
+              :key="tehnology">
+              {{ tehnology }}
+          </li>
         </ul>
         <h3 class="title title--block">Share</h3>
+        <div>
+          <ShareNetwork
+              network="viber"
+              :url="url"
+              :title="title"
+              :description="description"
+            >
+            <i class="fab fah fa-lg fa-twitter"></i>
+            <span>Share on viberr</span>
+          </ShareNetwork>
+        </div>
       </div>
     </div>
   </section>
@@ -32,6 +43,13 @@ import AppSlider from '@/components/main/portfolio_page/Slider'
 export default {
   components: {
     AppSlider
+  },
+  data() {
+    return {
+      url: process.env.BASE_URL + this.$route.fullPath,
+      title: "Say hi to Vite! A brand new, extremely fast development setup for Vue.",
+      description: "This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
+    }
   },
   props: {
     project: {
@@ -54,7 +72,6 @@ export default {
 
     @media screen and (max-width: 1120px) {
       width: 100%;
-      height: auto;
     }
   }
 

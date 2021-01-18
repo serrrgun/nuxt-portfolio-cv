@@ -23,7 +23,7 @@ export const actions = {
       throw e
     }
   },
-  async create({commit}, {title, text, autor, linkProject, linkGithub, prevImage, desktopImage, mobileImage}) {
+  async create({commit}, {title, text, autor, linkProject, linkGithub, prevImage, desktopImage, mobileImage, listTehnology}) {
     try {
       const fd = new FormData()
 
@@ -32,6 +32,7 @@ export const actions = {
       fd.append('autor', autor)
       fd.append('linkProject', linkProject)
       fd.append('linkGithub', linkGithub)
+      fd.append('listTehnology', listTehnology)
       fd.append('prevImage', prevImage, prevImage.name)
       fd.append('desktopImage', desktopImage, desktopImage.name)
       fd.append('mobileImage', mobileImage, mobileImage.name)

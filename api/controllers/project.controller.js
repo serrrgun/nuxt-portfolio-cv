@@ -14,6 +14,7 @@ module.exports.create = async (req, res) => {
     autor: req.body.autor,
     linkProject: req.body.linkProject,
     linkGithub: req.body.linkGithub,
+    listTehnology: req.body.listTehnology,
     prevImage: imagesArray(req.files.prevImage),
     desktopImage: imagesArray(req.files.desktopImage),
     mobileImage: imagesArray(req.files.mobileImage),

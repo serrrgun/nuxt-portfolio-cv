@@ -16,8 +16,9 @@ export default {
   async asyncData({store, params}) {
     const project = await store.dispatch('project/fetchById', params.id)
     await store.dispatch('project/addView', project)
+  
     return {
-      project: {...project, views: ++project.views}
+      project: {...project, views: ++project.views, listTehnology: project.listTehnology.split(' ')}
     }
   },
   validate({params}) {

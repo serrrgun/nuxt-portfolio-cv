@@ -29,7 +29,11 @@
         v-model="controls.linkGithub"
       />
     </el-form-item>
-
+    <el-form-item label="Введите список технологий" prop="listTehnology">
+      <el-input
+        v-model="controls.listTehnology"
+      />
+    </el-form-item>
     <el-form-item label="Описание проекта в формате .md или .html" prop="text">
       <el-input
         v-model="controls.text"
@@ -123,22 +127,26 @@ export default {
         autor: '',
         linkProject: '',
         linkGithub: '',
+        listTehnology: '',
       },
       rules: {
         title: [
-          { required: false, message: 'Назовите проект!', trigger: 'blur' }
+          { required: true, message: 'Назовите проект!', trigger: 'blur' }
         ],
         text: [
-          { required: false, message: 'Текст не должен быть пустым', trigger: 'blur' }
+          { required: true, message: 'Текст не должен быть пустым', trigger: 'blur' }
         ],
         autor: [
-            {required: false, message: 'Укажите автора', trigger: 'blur' }
+            {required: true, message: 'Укажите автора', trigger: 'blur' }
         ],
         linkProject: [
-          {required: false, message: 'Укажите ссылку на проект', trigger: 'blur' }
+          {required: true, message: 'Укажите ссылку на проект', trigger: 'blur' }
         ],
         linkGithub: [
-          {required: false, message: 'Укажите ссылку Github репозиторий', trigger: 'blur' }
+          {required: true, message: 'Укажите ссылку Github репозиторий', trigger: 'blur' }
+        ],
+        listTehnology: [
+          {required: true, message: 'Укажите ссылку Github репозиторий', trigger: 'blur' }
         ]
       }
     }
@@ -155,6 +163,7 @@ export default {
             autor: this.controls.autor,
             linkProject: this.controls.linkProject,
             linkGithub: this.controls.linkGithub,
+            listTehnology: this.controls.listTehnology,
             prevImage: this.prevImage,
             desktopImage: this.desktopImage,
             mobileImage:  this.mobileImage,
@@ -168,6 +177,7 @@ export default {
             this.prevImage = null,
             this.desktopImage = null,
             this.mobileImage =  null,
+            this.listTehnology = '',
             this.$refs.upload.clearFiles()
             this.$message.success('Новый проект создан')
 
