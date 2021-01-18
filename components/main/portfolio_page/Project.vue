@@ -46,7 +46,7 @@ export default {
   },
   data() {
     return {
-      url: process.env.BASE_URL + this.$route.fullPath,
+      url: process.env.BASE_URL || 'http://localhost:3000/' + this.$route.fullPath,
       title: "Say hi to Vite! A brand new, extremely fast development setup for Vue.",
       description: "This week, I’d like to introduce you to 'Vite', which means 'Fast'. It’s a brand new development setup created by Evan You."
     }
@@ -57,6 +57,9 @@ export default {
       required: true
     }
   },
+  mounted() {
+        console.log(this.url);
+      }
 }
 </script>
 <style lang="scss">
