@@ -1,6 +1,6 @@
 <template>
   <section class="blog">
-    <h2 class="title title--page">Blog</h2>
+    <h2 class="title title--page">Story <span> Book</span></h2>
   </section>
 </template>
 <script>

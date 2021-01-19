@@ -26,9 +26,9 @@
         </nuxt-link>
       </li>
       <li class="main-nav__item">
-        <nuxt-link no-prefetch to="/blog" class="main-nav__link" active-class="main-nav__link--active">
+        <nuxt-link no-prefetch to="/storybook" class="main-nav__link" active-class="main-nav__link--active">
           <svg-icon name="blog" />
-          <span class="main-nav__text">Blog</span>
+          <span class="main-nav__text">Storybook</span>
         </nuxt-link>
       </li>
       <li class="main-nav__item">

@@ -22,6 +22,18 @@ export default {
     AppNavigationBtn,
     AppMenuBtn
   },
+  data() {
+    return {
+      mouseMove: {}
+    }
+  },
+  // methods: {
+  //   moveBackground(e) {
+  //     this.mouseMove = {
+  //       transform: "translateX(" + (e.clientX - e.pageX * 1.4 ) / 100 + "px) translateY(" + (e.clientY - e.pageY * 1.4 ) / 100 + "px)"
+  //     }
+  //   }
+  // },
 }
 </script>
 <style lang="scss">
@@ -111,14 +123,17 @@ export default {
 
 .background {
   position: absolute;
+  width: auto;
+  height: auto;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
+  right: 0;
+  bottom: 0;
   background-image: url('../assets/img/main_bg.png');
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: -1;
 
   @media screen and (max-width: 1120px) {
     background: none;

@@ -1,5 +1,5 @@
 <template>
-  <div class="menu-btn" :class="{'menu-btn--active': menuTrigger}" v-on:click="openMenuHandler">
+  <div class="menu-btn" :class="{'menu-btn--active': menuTrigger}" @click="openMenuHandler">
     <span></span>
     <span></span>
     <span></span>
