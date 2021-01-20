@@ -76,6 +76,7 @@ export default {
 }
 
 .content {
+  position: relative;
   width: calc(100% - 380px);
   border-radius: 30px;
   background-color: #222;

@@ -131,18 +131,145 @@
   </div>
   <div class="error__info">
     <p class="error__message">Ooops! Sorry, page not found</p>
-    <nuxt-link to="/">HOMEE</nuxt-link>
+    <nuxt-link to="/" class="error__home">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+        go home
+    </nuxt-link>
   </div>
 </div>
 </template>
 <style lang="scss">
 .error {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(0deg,#1ec4e9 0%, #673ab7 50%, #262626 70%, #607d8b 100%);
 
+  &__message {
+    margin-bottom: 30px;
+    font-size: 25px;
+  }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &__home {
+    position: relative;
+    align-self: center;
+    padding: 20px 35px;
+    text-decoration: none;
+    color: #fefefe;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: rgba(255,255,255, .1);
+    box-shadow: 0 5px 5px rgba(0,0,0, .2);
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 50%;
+      height: 100%;
+      background: rgba(255,255,255,.1)
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: -100%;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+      transition: .5s;
+      transition-delay: .3s;
+    }
+
+    &:hover:after {
+      left: 100%;
+    }
+
+    & span {
+      position: absolute;
+      display: block;
+      transition: .5s ease;
+
+      &:nth-child(1) {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: #fefefe;
+      }
+
+      &:nth-child(2) {
+        top: 0;
+        left: 0;
+        width: 1px;
+        height: 0;
+        background: #fefefe;
+      }
+
+      &:nth-child(3) {
+        bottom: 0;
+        right: 0;
+        width: 0;
+        height: 1px;
+        background: #fefefe;
+      }
+
+      &:nth-child(4) {
+        bottom: 0;
+        right: 0;
+        width: 1px;
+        height: 0;
+        background: #fefefe;
+      }
+    }
+
+    &:hover {
+      & span {
+        &:nth-child(1) {
+          width: 100%;
+          transform: translateX(100%);
+        }
+
+        &:nth-child(2) {
+          height: 100%;
+          transform: translateY(100%);
+        }
+
+        &:nth-child(3) {
+          width: 100%;
+          transform: translateX(-100%);
+        }
+
+        &:nth-child(4) {
+          height: 100%;
+          transform: translateY(-100%);
+        }
+      }
+    }
+  }
 
   &__svg {
 
     padding-top: 5vh;
+
+    @media screen and (max-width: 1120px) {
+      padding-top: 10vh;
+    }
 
   .cls-1 {
     fill: #ffc541;
