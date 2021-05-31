@@ -1,8 +1,12 @@
 <template>
   <div class="portfolio-item" @click="openProject">
-    <img :src="project.prevImage[0]" :alt="project.title">
-    <div class="portfolio-item__desc">
-      <h4 class="portfolio-item__title">{{ project.title }}</h4>
+    <div class="portfolio-item__wrapper">
+      <div class="portfolio-item__inner">
+        <img :src="project.prevImage[0]" :alt="project.title">
+        <div class="portfolio-item__desc">
+          <h4 class="portfolio-item__title">{{ project.title }}</h4>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -28,7 +32,6 @@ export default {
   position: relative;
   display: block;
   width: 49%;
-  height: 250px;
   border-radius: 6px;
   margin-bottom: 20px;
   overflow: hidden;
@@ -41,16 +44,29 @@ export default {
     }
 
     img {
-      transform: scale(1.4);
+      transform: scale(1.2);
     }
   }
 
   img {
+    height: 100%;
     transition: .5s ease-in;
   }
 
   @media screen and (max-width: 640px) {
     width: 100%;;
+  }
+
+  &__wrapper {
+    padding-top: 75%;
+  }
+
+  &__inner {
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
   }
 
   &__desc {
