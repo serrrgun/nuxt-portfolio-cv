@@ -7,9 +7,8 @@
           <img src="@/assets/img/sertificate-1.jpg" alt="certificat-1">
         </div>
         <div class="certificat__item-desc">
-          <p class="certificat__item-title">Psyhology of Intertnation Design</p>
-          <p class="certificat__item-id">Membership ID: XXXX</p>
-          <span>9 April 2018</span>
+          <a href="https://htmlacademy.ru/intensive/htmlcss" class="certificat__item-title">HTML и CSS, level 1</a>
+          <span>13 september 2017</span>
         </div>
       </li>
       <li class="certificat__item">
@@ -17,9 +16,8 @@
           <img src="@/assets/img/sertificate-2.jpg" alt="certificat-2">
         </div>
         <div class="certificat__item-desc">
-          <p class="certificat__item-title">Psyhology of Intertnation Design</p>
-          <p class="certificat__item-id">Membership ID: XXXX</p>
-          <span>9 April 2018</span>
+          <a href="https://htmlacademy.ru/intensive/adaptive" class="certificat__item-title">HTML и CSS, level 2 </a>
+          <span>25 october 2017</span>
         </div>
       </li>
       <li class="certificat__item">
@@ -27,9 +25,8 @@
           <img src="@/assets/img/sertificate-3.jpg" alt="certificat-3">
         </div>
         <div class="certificat__item-desc">
-          <p class="certificat__item-title">Psyhology of Intertnation Design</p>
-          <p class="certificat__item-id">Membership ID: XXXX</p>
-          <span>9 April 2018</span>
+          <a href="https://htmlacademy.ru/intensive/javascript" class="certificat__item-title">JavaScript, level 1</a>
+          <span>7 march 2017</span>
         </div>
       </li>
       <li class="certificat__item">
@@ -37,9 +34,8 @@
           <img src="@/assets/img/sertificate-4.jpg" alt="certificat-4">
         </div>
         <div class="certificat__item-desc">
-          <p class="certificat__item-title">Psyhology of Intertnation Design</p>
-          <p class="certificat__item-id">Membership ID: XXXX</p>
-          <span>9 April 2018</span>
+          <a href="https://htmlacademy.ru/intensive/ecmascript" class="certificat__item-title">JavaScript, level 2</a>
+          <span>19 september 2017</span>
         </div>
       </li>
     </ul>
@@ -85,9 +81,17 @@
     }
 
     &-title {
+      display: block;
+      color: #fff;
+      text-decoration: none;
       font-size: 16px;
       margin: 0 0 5px;
-      font-weight: 600
+      font-weight: 600;
+      transition: color .3s;
+
+      &:hover {
+        color: #5050f5;
+      }
     }
 
     &-id {
@@ -97,7 +101,7 @@
     }
 
     span {
-      font-size: .7em;
+      font-size: 1em;
       color: #777;
       opacity: .7;
     }

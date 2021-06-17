@@ -1,41 +1,24 @@
 <template>
   <div class="timeline">
-    <h3 class="title title--block">Education</h3>
+    <h3 class="title title--block">{{ title }}</h3>
     <ul class="timeline__list">
-      <li class="timeline__item">
+      <li class="timeline__item" v-for="item in data" :key="item.id">
         <div class="timeline__item-left">
-          <span>2008</span>
-          <span>University of Studies</span>
+          <span>{{ item.year }}</span>
+          <span>{{ item.name }}</span>
         </div>
         <div class="timeline__item-right">
-          <p>University of Studies</p>
-          <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.</p>
-        </div>
-      </li>
-      <li class="timeline__item">
-        <div class="timeline__item-left">
-          <span>2008</span>
-          <span>University of Studies</span>
-        </div>
-        <div class="timeline__item-right">
-          <p>University of Studies</p>
-          <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.</p>
-        </div>
-      </li>
-      <li class="timeline__item">
-        <div class="timeline__item-left">
-          <span>2008</span>
-          <span>University of Studies</span>
-        </div>
-        <div class="timeline__item-right">
-          <p>University of Studies</p>
-          <p>Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis ante.</p>
+          <a :href="item.link" target="_blank">{{ item.name }}</a>
+          <p>{{ item.description }}</p>
         </div>
       </li>
     </ul>
   </div>
 </template>
 <script>
+export default {
+  props: ['title', 'data']
+}
 </script>
 <style lang="scss">
 .timeline {
@@ -49,7 +32,6 @@
   }
 
   &__item {
-
     display: flex;
 
     &-left {
@@ -59,12 +41,13 @@
       align-items: flex-end;
       width: 30%;
       padding-right: 30px;
-      padding-top: 8px;
+      padding-top: 0;
+      padding-bottom: 50px;
 
       span:nth-child(1) {
-        color: #aaa;
+        color:#fff;
         margin: 3px 0;
-        font-size: 14px;
+        font-size: 11px;
         line-height: 1.4em;
         font-weight: 600;
       }
@@ -94,8 +77,8 @@
         display: block;
         position: absolute;
         top: 0;
-        right: -4.5px;
-        margin-top: 10px;
+        right: -3.5px;
+        margin-top: 2px;
         width: 9px;
         height: 9px;
         margin-left: -4px;
@@ -109,7 +92,8 @@
 
     &-right {
       padding-left: 25px;
-      padding-top: 8px;
+      padding-top: 0;
+      padding-bottom: 30px;
       width: 70%;
 
       p {
@@ -130,7 +114,19 @@
         color: #d5d5d5;
       }
 
+      a {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: bold;
+        transition: color .3s;
 
+        &:hover {
+          color: #5050f5;
+        }
+      }
     }
   }
 }
